@@ -1,0 +1,8 @@
+<h2>Chat</h2>
+
+<div *ngFor="let message of messages">
+  <h3>
+    {{message.author}} ({{message.date}}): 
+    {{message.text}}
+  </h3>
+</div>
