@@ -24,12 +24,17 @@ const firebaseConfig = {
 
 import { AppComponent } from './app.component';
 import { ChatComponent } from './chat/chat.component';
-
 import { HelloComponent } from './hello.component';
 
-
 @NgModule({
-  imports:      [ BrowserModule, FormsModule, RouterModule.forRoot([
+  imports: [ 
+    BrowserModule, 
+    FormsModule,
+    AngularFireModule.initializeApp(firebaseConfig),
+    AngularFirestoreModule, // firestore
+    AngularFireAuthModule, // auth
+    AngularFireStorageModule, // storage
+    RouterModule.forRoot([
     // List paths here
     { path: '', component: ChatComponent},
   ]) ],
