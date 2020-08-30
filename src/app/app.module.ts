@@ -29,6 +29,11 @@ import { HelloComponent } from './hello.component';
 import { TopBarComponent } from './top-bar/top-bar.component';
 import { MenuComponent } from './menu/menu.component';
 
+//Authentication Service
+import { AuthenticationService } from './authentication.service';
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
+
 @NgModule({
   imports: [ 
     BrowserModule, 
@@ -41,13 +46,18 @@ import { MenuComponent } from './menu/menu.component';
     // List paths here
     { path: '', component: ChatComponent},
     { path: 'menu', component: MenuComponent},
+    { path: 'login', component: LoginComponent},
+    { path: 'register', component: RegisterComponent},
   ]) ],
   declarations: [ 
     AppComponent,
     HelloComponent,
     ChatComponent,
     TopBarComponent,
-    MenuComponent ],
-  bootstrap:    [ AppComponent ]
+    MenuComponent,
+    LoginComponent,
+    RegisterComponent ],
+  bootstrap:    [ AppComponent ],
+  providers: [AuthenticationService]
 })
 export class AppModule { }
