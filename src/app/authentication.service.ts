@@ -12,12 +12,31 @@ export  class  AuthenticationService {
   user: User;
 
   async login(email: string, password: string) {
-    var result = await this.afAuth.auth.signInWithEmailAndPassword(email, password);
+    var result = await this.afAuth.signInWithEmailAndPassword(email, password);
     this.router.navigate(['admin/list']);
   }
 
   async register(email: string, password: string){
-    var result = await this.afAuth.auth.createUserWithEmailAndPassword(email, password)
+    var result = await this.afAuth.createUserWithEmailAndPassword(email, password)
+  }
+
+  async sendEmailVerification() {
+    await (await this.afAuth.currentUser).sendEmailVerification();
+    this.router.navigate(['admin/verify-email']);
+  }
+  async sendPasswordResetEmail(passwordResetEmail: string) {
+    return await this.afAuth.sendPasswordResetEmail(passwordResetEmail);
+  }
+
+  async logout(){
+    await this.afAuth.signOut();
+    localStorage.removeItem('user');
+    this.router.navigate(['admin/login']);
+  }
+
+  get isLoggedIn(): boolean {
+    const  user  =  JSON.parse(localStorage.getItem('user'));
+    return  user  !==  null;
   }
 
   constructor( public afAuth: AngularFireAuth, public router: Router) {
