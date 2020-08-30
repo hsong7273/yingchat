@@ -22,6 +22,7 @@ const firebaseConfig = {
   measurementId: "G-W1L5TXZ7XF"
 };
 
+// Components
 import { AppComponent } from './app.component';
 import { ChatComponent } from './chat/chat.component';
 import { HelloComponent } from './hello.component';
@@ -39,7 +40,7 @@ import { MenuComponent } from './menu/menu.component';
     RouterModule.forRoot([
     // List paths here
     { path: '', component: ChatComponent},
-    { path: '/menu', component: MenuComponent},
+    { path: 'menu', component: MenuComponent},
   ]) ],
   declarations: [ 
     AppComponent,
