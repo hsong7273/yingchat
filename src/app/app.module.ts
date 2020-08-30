@@ -25,6 +25,8 @@ const firebaseConfig = {
 import { AppComponent } from './app.component';
 import { ChatComponent } from './chat/chat.component';
 import { HelloComponent } from './hello.component';
+import { TopBarComponent } from './top-bar/top-bar.component';
+import { MenuComponent } from './menu/menu.component';
 
 @NgModule({
   imports: [ 
@@ -37,11 +39,14 @@ import { HelloComponent } from './hello.component';
     RouterModule.forRoot([
     // List paths here
     { path: '', component: ChatComponent},
+    { path: '/menu', component: MenuComponent},
   ]) ],
   declarations: [ 
     AppComponent,
     HelloComponent,
-    ChatComponent ],
+    ChatComponent,
+    TopBarComponent,
+    MenuComponent ],
   bootstrap:    [ AppComponent ]
 })
 export class AppModule { }
