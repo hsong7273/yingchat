@@ -2,7 +2,6 @@
 
 <div *ngIf="!(authService.user | async)">
   <input type="text" [(ngModel)]="email" placeholder="email">
-    <input type="text" [(ngModel)]="name" placeholder="name">
   <input type="password" [(ngModel)]="password" placeholder="password">
 
   <button (click)="register()" [disabled]="!email || !password">

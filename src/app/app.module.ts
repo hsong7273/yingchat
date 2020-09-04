@@ -33,6 +33,7 @@ import { MenuComponent } from './menu/menu.component';
 import { AuthenticationService } from './authentication.service';
 import { RegisterComponent } from './register/register.component';
 import { UsernameComponent } from './username/username.component';
+import { UsernameService } from './username.service';
 
 @NgModule({
   imports: [ 
@@ -47,6 +48,7 @@ import { UsernameComponent } from './username/username.component';
     { path: '', component: ChatComponent},
     { path: 'menu', component: MenuComponent},
     { path: 'register', component: RegisterComponent},
+    { path: 'username', component: UsernameComponent},
   ]) ],
   declarations: [ 
     AppComponent,
@@ -57,6 +59,6 @@ import { UsernameComponent } from './username/username.component';
     RegisterComponent,
     UsernameComponent ],
   bootstrap:    [ AppComponent ],
-  providers: [AuthenticationService]
+  providers: [AuthenticationService, UsernameService]
 })
 export class AppModule { }

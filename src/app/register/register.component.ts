@@ -15,20 +15,19 @@ import { User } from  'firebase';
 export class RegisterComponent implements OnInit {
   email: string;
   password: string;
-  name: string;
 
   user: Observable<firebase.User>; 
 
   register() {
     this.authService.register(this.email,this.password);
     //Reset variables
-    this.email = this.password = this.name = '';
+    this.email = this.password = '';
   }
 
   login() {
     this.authService.login(this.email,this.password);
     // Reset variables
-    this.email = this.password = this.name =  '';
+    this.email = this.password =  '';
   }
 
   logout() {

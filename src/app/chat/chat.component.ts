@@ -6,8 +6,6 @@ import { Message } from './messages';
 import { auth } from  'firebase/app';
 import { User } from  'firebase';
 
-import { UserName } from './user.model';
-
 
 @Component({
   selector: "app-chat",
