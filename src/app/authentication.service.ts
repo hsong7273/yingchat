@@ -1,55 +1,42 @@
-import { Injectable } from '@angular/core';
-import { Router } from '@angular/router';
-import { User } from './user.model.ts'; // optional
+import { Injectable } from  '@angular/core';
+import { Router } from  "@angular/router";
+import { Observable } from 'rxjs';
 
-import { auth } from 'firebase/app';
-import { AngularFireAuth } from '@angular/fire/auth';
-import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
+import { auth } from  'firebase/app';
+import { AngularFireAuth } from  "@angular/fire/auth";
+import { User } from  'firebase';
 
-import { Observable, of } from 'rxjs';
-import { switchMap } from 'rxjs/operators';
+@Injectable({
+    providedIn:  'root'
+})
+export  class  AuthenticationService {
+  user: Observable<firebase.User>;  
 
-@Injectable({ providedIn: 'root' })
-export class AuthService {
+  constructor( private afAuth: AngularFireAuth ) {
+    this.user = afAuth.authState;
+  }
 
-  user$: Observable<User>;
+  register(email: string, password: string) {
+  this.afAuth.createUserWithEmailAndPassword(email, password).then(value => {
+    console.log('Success!', value);
+  })
+  .catch(err => {
+    console.log('Something went wrong:', err.message);
+  })
+  }
 
-  constructor(
-      private afAuth: AngularFireAuth,
-      private afs: AngularFirestore,
-      private router: Router
-  ) {
-      this.user$ = this.afAuth.authState.pipe(
-      switchMap(user => {
-        // Logged in
-        if (user) {
-          return this.afs.doc<User>(`users/${user.uid}`).valueChanges();
-        } else {
-          // Logged out
-          return of(null);
-        }
+  login(email: string, password: string) {
+    auth().setPersistence(auth.Auth.Persistence.LOCAL).then(function(){
+      this.afAuth.signInWithEmailAndPassword(email, password).then(value => {
+        console.log('Nice, it worked!');
       })
-    )
-    }
-  async register(email: string, password: string){
-    this.auth.createUserWithEmailAndPassword(email, password).then(value => {
-      console.log('Success!', value);
-    }).catch(err => {
-      console.log('Something went wrong: ', err.message);
+      .catch(err => {
+      console.log('Something went wrong:',err.message);
+      });
     });
   }
 
-  login(email: string, password: string){
-    this.auth.signInWithEmailAndPassword(email, password).then(value => {
-      console.log('Nice, it worked!');
-    }).catch(err => {
-      console.log('Something went wrong:', err.message);
-    });
-  }
-
-  logout() {
-    this.auth.signOut();
+ logout() {
+    this.afAuth.signOut();
   }
 }
-
-
