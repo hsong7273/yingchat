@@ -5,7 +5,6 @@ import { Observable } from 'rxjs';
 import { auth } from  'firebase/app';
 import { User } from  'firebase';
 
-import { UsernameService } from '../username.service';
 import { UserName } from './user.model';
 // Component for updating username
 
@@ -17,17 +16,10 @@ import { UserName } from './user.model';
 export class UsernameComponent implements OnInit {
 
   users: UserName[];
-  constructor( private usernameService: UsernameService) { }
+  constructor() { }
+ 
+  ngOnInit() {}
 
-  ngOnInit() {
-    this.usernameService.getUsernames().subscribe(data => {
-      this.users = data.map(e => {
-        return {
-          uid: e.payload.doc.uid,
-          Name: e.payload.doc.Name
-        } as UserName;
-      })
-    })
-  }
+
 
 }

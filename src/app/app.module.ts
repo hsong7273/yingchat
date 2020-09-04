@@ -33,7 +33,6 @@ import { MenuComponent } from './menu/menu.component';
 import { AuthenticationService } from './authentication.service';
 import { RegisterComponent } from './register/register.component';
 import { UsernameComponent } from './username/username.component';
-import { UsernameService } from './username.service';
 
 @NgModule({
   imports: [ 
@@ -59,6 +58,6 @@ import { UsernameService } from './username.service';
     RegisterComponent,
     UsernameComponent ],
   bootstrap:    [ AppComponent ],
-  providers: [AuthenticationService, UsernameService]
+  providers: [AuthenticationService]
 })
 export class AppModule { }
