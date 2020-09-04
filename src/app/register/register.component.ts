@@ -20,14 +20,14 @@ export class RegisterComponent implements OnInit {
   user: Observable<firebase.User>; 
 
   register() {
-    this.authService.register(this.email, this.password);
+    this.authService.register(this.email,this.password);
     //Reset variables
     this.email = this.password = this.name = '';
   }
 
   login() {
-    this.authService.login(this.email, this.password);
-    // Reser variables
+    this.authService.login(this.email,this.password);
+    // Reset variables
     this.email = this.password = this.name =  '';
   }
 
