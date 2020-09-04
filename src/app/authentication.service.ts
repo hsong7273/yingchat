@@ -23,6 +23,8 @@ export  class  AuthenticationService {
     .catch(err => {
       console.log('Something went wrong:', err.message);
     })
+
+    
   }
 
   login(email: string, password: string) {
