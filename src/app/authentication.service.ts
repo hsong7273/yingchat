@@ -25,7 +25,7 @@ export  class  AuthenticationService {
   })
   }
 
-  login(email: string, password: string) {
+  login(this, email: string, password: string) {
     auth().setPersistence(auth.Auth.Persistence.LOCAL).then(function(){
       this.afAuth.signInWithEmailAndPassword(email, password).then(value => {
         console.log('Nice, it worked!');

@@ -19,7 +19,7 @@ export class ChatComponent implements OnInit {
 
   displayName: string;
 
-  constructor(db: AngularFireDatabase) {
+  constructor( db: AngularFireDatabase ) {
     this.itemsRef = db.list('messages');
     this.messages = db.list('messages').valueChanges();
   }
