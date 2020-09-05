@@ -6,6 +6,7 @@ import { Message } from './messages';
 import { auth } from  'firebase/app';
 import { User } from  'firebase';
 
+import * as firebase from 'firebase';
 
 @Component({
   selector: "app-chat",
@@ -16,12 +17,12 @@ export class ChatComponent implements OnInit {
   newMessage: Message;
   itemsRef: AngularFireList<any>;
   messages: Observable<any[]>;
-
-  displayName: string;
+  usernamme: string;
 
   constructor( db: AngularFireDatabase ) {
     this.itemsRef = db.list('messages');
     this.messages = db.list('messages').valueChanges();
+    
   }
 
   ngOnInit() {
@@ -29,6 +30,17 @@ export class ChatComponent implements OnInit {
   }
 
   addItem() {
+    var user = auth().currentUser;
+
+    var unameRef = firebase.database().ref('users/'+user.uid);
+    var test = unameRef.once('value').then(snapshot => {
+      var uname = snapshot.val().uname;
+      console.log(uname)
+      return uname;
+    })
+    // var test = unameRef.once('value');
+    // console.log(test.val().uname);
+    //this.newMessage.author = username;
     this.newMessage.date = String(new Date());
     this.itemsRef.push( this.newMessage );
   }
