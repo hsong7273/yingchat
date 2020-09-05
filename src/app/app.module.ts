@@ -33,6 +33,7 @@ import { MenuComponent } from './menu/menu.component';
 import { AuthenticationService } from './authentication.service';
 import { RegisterComponent } from './register/register.component';
 import { UsernameComponent } from './username/username.component';
+import { GifMenuComponent } from './gif-menu/gif-menu.component';
 
 @NgModule({
   imports: [ 
@@ -56,7 +57,8 @@ import { UsernameComponent } from './username/username.component';
     TopBarComponent,
     MenuComponent,
     RegisterComponent,
-    UsernameComponent ],
+    UsernameComponent,
+    GifMenuComponent ],
   bootstrap:    [ AppComponent ],
   providers: [AuthenticationService]
 })
