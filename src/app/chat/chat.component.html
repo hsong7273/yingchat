@@ -1,11 +1,10 @@
-<h2>Chat</h2>
+<button (click)="loadMore()">Load More</button>
+    <!-- <pagination-controls (pageChange)="page = $event"></pagination-controls> -->
 <ul>
 <div *ngFor="let message of messages | async | reverse |  paginate: { itemsPerPage: pageSize, currentPage: page } ">
 	<li> <div> <h3>  {{ message.author }} ({{message.date}}): {{message.text}}  </h3> </div> </li> 
 </div>
 </ul>
-<!-- <button (click)="loadMore()">Load More</button>
-    <pagination-controls (pageChange)="page = $event"></pagination-controls> -->
 
 <div>
 	<form (ngSubmit)="addItem()" #messageForm="ngForm">
