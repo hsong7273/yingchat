@@ -1,5 +1,5 @@
 <h2>Chat</h2>
-<app-gif-menu></app-gif-menu>
+
 <img src="../assets/test1.gif" width="30" height="30"/>
 
 <div *ngFor="let message of messages | async">
@@ -22,3 +22,5 @@
 		<button type="submit" class="btn btn-success" [disabled]="!messageForm.form.valid">Submit</button>
 	</form>
 </div>
+
+<app-gif-menu></app-gif-menu>
