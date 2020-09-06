@@ -34,6 +34,7 @@ import { AuthenticationService } from './authentication.service';
 import { RegisterComponent } from './register/register.component';
 import { UsernameComponent } from './username/username.component';
 import { GifMenuComponent } from './gif-menu/gif-menu.component';
+import { ReversePipe } from './reverse.pipe';
 
 @NgModule({
   imports: [ 
@@ -58,7 +59,8 @@ import { GifMenuComponent } from './gif-menu/gif-menu.component';
     MenuComponent,
     RegisterComponent,
     UsernameComponent,
-    GifMenuComponent ],
+    GifMenuComponent,
+    ReversePipe ],
   bootstrap:    [ AppComponent ],
   providers: [AuthenticationService]
 })

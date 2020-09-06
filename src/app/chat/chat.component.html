@@ -6,36 +6,24 @@
 	<h3> {{ message.author }} ({{message.date}}): {{message.text}} </h3>
 </div>
 
+<div *ngIf="(authService.user | async)">
+  <input type="text" [(ngModel)]="newMessage.text" placeholder="text">
+  <button (click)="addItem()" [disabled]="!newMessage.text">
+  Send
+  </button>
+</div>
+
+<div *ngIf="!(authService.user | async)">
+  Login or Register first
+</div>
 
 
-<div>
+<!-- <div>
 
 	<h1>Enter Message</h1>
 	<form (ngSubmit)="addItem()" #messageForm="ngForm">
-		<div class="form-group">
-			<label for="name">Name</label>
-			<input type="text" class="form-control" id="name"
-               required
-               [(ngModel)]="newMessage.author" name="name"
-               #name="ngModel">
-			<div [hidden]="name.valid || name.pristine" class="alert alert-danger">
-				Name is required
-			</div>
-		</div>
-<!-- 
-		<div class="form-group">
-			<label for="date">Date</label>
-			<input type="text" class="form-control" id="date"
-               required
-               [(ngModel)]="newMessage.date" name="date"
-               #date="ngModel">
-			<div [hidden]="date.valid || date.pristine" class="alert alert-danger">
-				Date is required
-			</div>
-		</div> -->
-
     <div class="form-group">
-			<label for="text">Text</label>
+			<label for="text"></label>
 			<input type="text" class="form-control" id="text"
                required
                [(ngModel)]="newMessage.text" name="text"
@@ -47,7 +35,5 @@
 
 
 		<button type="submit" class="btn btn-success" [disabled]="!messageForm.form.valid">Submit</button>
-
-
 	</form>
-</div>
+</div> -->
