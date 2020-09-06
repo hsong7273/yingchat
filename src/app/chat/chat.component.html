@@ -6,21 +6,7 @@
 	<h3> {{ message.author }} ({{message.date}}): {{message.text}} </h3>
 </div>
 
-<div *ngIf="(authService.user | async)">
-  <input type="text" [(ngModel)]="newMessage.text" placeholder="text">
-  <button (click)="addItem()" [disabled]="!newMessage.text">
-  Send
-  </button>
-</div>
-
-<div *ngIf="!(authService.user | async)">
-  Login or Register first
-</div>
-
-
-<!-- <div>
-
-	<h1>Enter Message</h1>
+<div>
 	<form (ngSubmit)="addItem()" #messageForm="ngForm">
     <div class="form-group">
 			<label for="text"></label>
@@ -29,11 +15,10 @@
                [(ngModel)]="newMessage.text" name="text"
                #text="ngModel">
 			<div [hidden]="text.valid || text.pristine" class="alert alert-danger">
-				Text is required
 			</div>
 		</div>
 
 
 		<button type="submit" class="btn btn-success" [disabled]="!messageForm.form.valid">Submit</button>
 	</form>
-</div> -->
+</div>
