@@ -6,7 +6,7 @@ import { auth } from  'firebase/app';
 import { User } from  'firebase';
 import { AuthenticationService } from  '../authentication.service';
 
-import * as firebase from 'firebase';
+import * as firebase from 'firebase/app';
 
 // Component for updating username
 @Component({

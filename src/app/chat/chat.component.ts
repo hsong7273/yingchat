@@ -6,7 +6,7 @@ import { Message } from './messages';
 import { auth } from  'firebase/app';
 import { User } from  'firebase';
 
-import * as firebase from 'firebase';
+import * as firebase from 'firebase/app';
 import { AuthenticationService } from  '../authentication.service';
 
 @Component({
