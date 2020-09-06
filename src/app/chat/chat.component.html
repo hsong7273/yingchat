@@ -4,8 +4,8 @@
 	<li> <div> <h3>  {{ message.author }} ({{message.date}}): {{message.text}}  </h3> </div> </li> 
 </div>
 </ul>
-<button (click)="loadMore()">Load More</button>
-    <pagination-controls (pageChange)="page = $event"></pagination-controls>
+<!-- <button (click)="loadMore()">Load More</button>
+    <pagination-controls (pageChange)="page = $event"></pagination-controls> -->
 
 <div>
 	<form (ngSubmit)="addItem()" #messageForm="ngForm">

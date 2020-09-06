@@ -9,6 +9,8 @@ import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireStorageModule } from '@angular/fire/storage';
 import { AngularFireAuthModule } from '@angular/fire/auth';
+import {NgxPaginationModule} from 'ngx-pagination'; 
+import {NgPipesModule} from 'ngx-pipes';
 
 //FireBase Credentials
 const firebaseConfig = {
@@ -44,6 +46,8 @@ import { ReversePipe } from './reverse.pipe';
     AngularFirestoreModule, // firestore
     AngularFireAuthModule, // auth
     AngularFireStorageModule, // storage
+    NgxPaginationModule,
+    NgPipesModule,
     RouterModule.forRoot([
     // List paths here
     { path: '', component: ChatComponent},
