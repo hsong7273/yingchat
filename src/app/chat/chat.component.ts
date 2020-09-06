@@ -19,7 +19,7 @@ export class ChatComponent implements OnInit {
   itemsRef: AngularFireList<any>;
   messages: Observable<any[]>;
   page: number = 0;
-  pageSize: number = 2;
+  pageSize: number = 4;
 
   constructor( db: AngularFireDatabase,
   public authService: AuthenticationService ) {

@@ -28,5 +28,6 @@ export class UsernameComponent implements OnInit {
     firebase.database().ref('users/'+user.uid).set({
       uname : this.username
     });
+    this.username = '';
   }
 }
