@@ -17,6 +17,8 @@
     "@firebase/firestore": "^1.16.6",
     "firebase": "7.19.1",
     "lodash": "^4.17.20",
+    "ngx-pagination": "^5.0.0",
+    "ngx-pipes": "^2.7.5",
     "rxjs": "6.6.2",
     "tslib": "2.0.1",
     "zone.js": "0.10.3"

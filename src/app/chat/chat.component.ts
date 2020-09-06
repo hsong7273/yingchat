@@ -18,6 +18,8 @@ export class ChatComponent implements OnInit {
   newMessage: Message;
   itemsRef: AngularFireList<any>;
   messages: Observable<any[]>;
+  page: number = 0;
+  pageSize: number = 2;
 
   constructor( db: AngularFireDatabase,
   public authService: AuthenticationService ) {
@@ -28,6 +30,10 @@ export class ChatComponent implements OnInit {
 
   ngOnInit() {
     this.newMessage = new Message();
+  }
+
+  loadMore() {
+    this.pageSize += 2;
   }
 
   addItem() {
